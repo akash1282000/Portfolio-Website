@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Simulate loading process
   let speed = 50; // Adjust this value to control the speed (lower is faster)
-  let incrementValue = 2; // Adjust this to control how much progress increases each time
+  let incrementValue = 3; // Adjust this to control how much progress increases each time
 
   let loadingInterval = setInterval(function () {
     loadProgress += Math.random() * incrementValue; // Control the increment of progress
