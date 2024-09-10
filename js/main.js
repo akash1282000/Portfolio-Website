@@ -3,32 +3,34 @@
 //-----------------------------
 
 document.addEventListener("DOMContentLoaded", function () {
-  let progressBar = document.getElementById("progress-bar");
-  let progressPercentage = document.getElementById("progress-percentage");
-  let loader = document.getElementById("loader");
-  let content = document.getElementById("content");
+  let progressBar = document.getElementById('progress-bar');
+  let progressPercentage = document.getElementById('progress-percentage');
+  let loader = document.getElementById('loader');
+  let content = document.getElementById('content');
 
   let loadProgress = 0;
-  let incrementValue = 5;
 
-  function updateProgress() {
-    loadProgress += Math.random() * incrementValue;
+  // Simulate loading process
+  let speed = 50; // Adjust this value to control the speed (lower is faster)
+  let incrementValue = 5; // Adjust this to control how much progress increases each time
+
+  let loadingInterval = setInterval(function () {
+    loadProgress += Math.random() * incrementValue; // Control the increment of progress
 
     if (loadProgress >= 100) {
       loadProgress = 100;
+      clearInterval(loadingInterval);
+
+      // Once loading is done, hide the loader and show the page content
       loader.style.display = "none";
       content.style.display = "block";
-    } else {
-      // Update the progress bar and percentage
-      progressBar.style.width = loadProgress + "%";
-      progressPercentage.innerText = Math.floor(loadProgress) + "%";
-
-      // Continue the animation
-      requestAnimationFrame(updateProgress);
     }
-  }
 
-  requestAnimationFrame(updateProgress); // Start the progress update
+    // Update the progress bar and percentage
+    progressBar.style.width = loadProgress + '%';
+    progressPercentage.innerText = Math.floor(loadProgress) + '%';
+
+  }, speed); // Adjust this value to control update frequency (higher is slower)
 });
 
 //  -----------------------------
