@@ -97,19 +97,21 @@
 
 /* Progress bar container */
 #progress-bar-container {
-  width: 80%;
-  background-color: #444;
-  border-radius: 25px;
-  margin-bottom: 10px;
+  width: 80%; 
+  background: #555;
+  height: 20px;
+  border-radius: 10px;
+  margin: 20px 0;
+  transform: translateZ(0); /* Forces hardware acceleration */
 }
 
 /* Progress bar */
 #progress-bar {
-  width: 0;
-  height: 25px;
-  background-color: #0ef;
-  border-radius: 25px;
-  transition: width 0.4s ease-in-out;
+  height: 100%;
+  background: #0f0;
+  width: 0; /* Will be updated by JS */
+  border-radius: 10px;
+  will-change: width; /* Optimizes the element for smooth changes */
 }
 
 /* Percentage display */
