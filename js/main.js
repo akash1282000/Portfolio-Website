@@ -11,11 +11,11 @@ document.addEventListener("DOMContentLoaded", function () {
   let loadProgress = 0;
 
   // Simulate loading process
-  let speed = 50; // Adjust this value to control the speed (lower is faster)
-  let incrementValue = 5; // Adjust this to control how much progress increases each time
+  let speed = 50; // Adjust this value to control the speed
+  let incrementValue = 5; // Adjust this to control the progress increment
 
   let loadingInterval = setInterval(function () {
-    loadProgress += Math.random() * incrementValue; // Control the increment of progress
+    loadProgress += Math.random() * incrementValue;
 
     if (loadProgress >= 100) {
       loadProgress = 100;
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
     progressBar.style.width = loadProgress + '%';
     progressPercentage.innerText = Math.floor(loadProgress) + '%';
 
-  }, speed); // Adjust this value to control update frequency (higher is slower)
+  }, speed); // Update every 50ms
 });
 
 //  -----------------------------
