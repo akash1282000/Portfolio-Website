@@ -87,6 +87,19 @@
   }
 }
 
+@supports (-webkit-touch-callout: none) {
+  /* Safari-specific CSS rules go here */
+
+  #progress-bar {
+    background: red; /* Example: Change progress bar color in Safari */
+  }
+
+  #loader {
+    opacity: 0.9; /* Example: Apply a Safari-specific adjustment */
+  }
+}
+
+
 /* Loading text */
 #loading-text {
   font-size: 24px;
