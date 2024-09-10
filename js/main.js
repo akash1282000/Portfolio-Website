@@ -9,27 +9,26 @@ document.addEventListener("DOMContentLoaded", function () {
   let content = document.getElementById("content");
 
   let loadProgress = 0;
+  let incrementValue = 5;
 
-  // Simulate loading process
-  let speed = 50; // Adjust this value to control the speed
-  let incrementValue = 5; // Adjust this to control the progress increment
-
-  let loadingInterval = setInterval(function () {
+  function updateProgress() {
     loadProgress += Math.random() * incrementValue;
 
     if (loadProgress >= 100) {
       loadProgress = 100;
-      clearInterval(loadingInterval);
-
-      // Once loading is done, hide the loader and show the page content
       loader.style.display = "none";
       content.style.display = "block";
-    }
+    } else {
+      // Update the progress bar and percentage
+      progressBar.style.width = loadProgress + "%";
+      progressPercentage.innerText = Math.floor(loadProgress) + "%";
 
-    // Update the progress bar and percentage
-    progressBar.style.width = loadProgress + "%";
-    progressPercentage.innerText = Math.floor(loadProgress) + "%";
-  }, speed); // Update every 50ms
+      // Continue the animation
+      requestAnimationFrame(updateProgress);
+    }
+  }
+
+  requestAnimationFrame(updateProgress); // Start the progress update
 });
 
 //  -----------------------------
